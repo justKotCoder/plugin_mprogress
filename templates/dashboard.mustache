@@ -1,0 +1,106 @@
+<div class="header-controls">
+    <!-- Кнопка смены языка с выпадающим списком -->
+    <div class="language-dropdown">
+        <button class="language-toggle">
+            <img src="/local/mprogress/pix/globe.png" alt="Language" />
+        </button>
+        <div class="language-menu">
+            <a href="?lang=ru">
+                <img src="/local/mprogress/pix/ru.png" alt="Русский" />
+            </a>
+            <a href="?lang=en">
+                <img src="/local/mprogress/pix/en.png" alt="English" />
+            </a>
+        </div>
+    </div>
+
+    <!-- Кнопка информации -->
+    <button class="info-toggle" id="openModalBtn">
+        <img src="/local/mprogress/pix/info.png" alt="Информация" />
+    </button>
+</div>
+
+<ul>
+    {{#courses}}
+    <li class="course">
+        <h2>{{course_name}}</h2>
+        <p class="progress-title">Прогресс курса:</p>
+                    <div class="score-block">
+                <span class="score-text">14.7/73.4 Баллов</span>
+            </div>
+        <div class="progress-container">
+             
+            <!-- Контейнер для текста и линейного Progress Bar -->
+            <!-- Линейный прогресс-бар -->
+
+            <div class="linear-progressbar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-mask" style="width: calc(100% - {{progress}}%);"></div>
+                    <div class="progress-circle" style="left: calc({{progress}}% - 30px);">
+                        <span class="circle-text">{{progress}}%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Круговой прогресс-бар -->
+            <div class="circle-progress-bar" data-progress="{{progress}}">
+                <svg class="circle" width="200" height="200" viewBox="0 0 200 200">
+                    <!-- Определение градиента -->
+                    <defs>
+                        <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:orange; stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:white; stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="circle-background" cx="100" cy="100" r="90" stroke-width="12" />
+                    <circle class="circle-progress" cx="100" cy="100" r="90" stroke="url(#progress-gradient)" stroke-width="12" />
+                </svg>
+                <div class="circle-progress-text">{{progress}}%<p>Успеваемость</p></div>
+            </div>
+        </div>
+        <div class="course-activities">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Задание</th>
+                        <th>Оценка</th>
+                        <th>Баллы</th>
+                        <th>Вес</th>
+                        <th>Итог</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#activities}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>
+                            <div class="linear-progressbar-wrapper">
+                                <div class="progress-bar progress-bar-activities">
+                                    <div class="progress-mask" style="width: calc(100% - {{progress}}%);"></div>
+                                    <div class="progress-circle progress-circle-activities" style="left: calc({{progress}}% - 30px);">
+                                        <span class="circle-text circle-text-activities">{{progress}}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{grade}} / {{grademax}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {{/activities}}
+                </tbody>
+            </table>
+        </div>
+        <button class="toggle-details">
+            <img src="/local/mprogress/pix/angle-down-solid.svg" alt="Toggle">
+        </button>
+    </li>
+    {{/courses}}
+</ul>
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+            <h1>ИНФОРМАЦИЯ</h1>
+            <p>Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</p>
+        </div>
+    </div>
