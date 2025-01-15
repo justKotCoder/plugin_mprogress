@@ -24,9 +24,9 @@
     {{#courses}}
     <li class="course">
         <h2>{{course_name}}</h2>
-        <p class="progress-title">Прогресс курса:</p>
+        <p class="progress-title">{{course_progress}}</p>
                     <div class="score-block">
-                <span class="score-text">14.7/73.4 Баллов</span>
+                <span class="score-text">{{total_user_points}} / {{total_max_points}} Баллов</span>
             </div>
         <div class="progress-container">
              
@@ -37,7 +37,7 @@
                 <div class="progress-bar">
                     <div class="progress-mask" style="width: calc(100% - {{progress}}%);"></div>
                     <div class="progress-circle" style="left: calc({{progress}}% - 30px);">
-                        <span class="circle-text">{{progress}}%</span>
+                        <span class="circle-text">{{final_grade}}%</span>
                     </div>
                 </div>
             </div>
@@ -61,30 +61,35 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Задание</th>
-                        <th>Оценка</th>
-                        <th>Баллы</th>
-                        <th>Вес</th>
-                        <th>Итог</th>
+                        <th>{{columns.assignment}}</th>
+                        <th>{{columns.grade}}</th>
+                        <th>{{columns.points}}</th>
+                        <th>{{columns.weight}}</th>
+                        <th>{{columns.result}}</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#activities}}
                     <tr>
-                        <td>{{name}}</td>
+                        <td>
+                            <div class="activity-info">
+                                <div class="activity-type">{{type}}</div> <!-- Проверьте вывод переменной -->
+                                <div class="activity-name">{{name}}</div>
+                            </div>
+                        </td>
                         <td>
                             <div class="linear-progressbar-wrapper">
                                 <div class="progress-bar progress-bar-activities">
-                                    <div class="progress-mask" style="width: calc(100% - {{progress}}%);"></div>
-                                    <div class="progress-circle progress-circle-activities" style="left: calc({{progress}}% - 30px);">
-                                        <span class="circle-text circle-text-activities">{{progress}}%</span>
+                                    <div class="progress-mask" style="width: calc(100% - {{percentage}}%);"></div>
+                                    <div class="progress-circle progress-circle-activities" style="left: calc({{percentage}}% - 30px);">
+                                        <span class="circle-text circle-text-activities">{{percentage}}%</span>
                                     </div>
                                 </div>
                             </div>
                         </td>
-                        <td>{{grade}} / {{grademax}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{grade_display}}</td>
+                        <td>{{calculated_weight}}%</td>
+                        <td>{{total_score}} / {{total_score2}} </td>
                     </tr>
                     {{/activities}}
                 </tbody>
@@ -100,7 +105,7 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <button id="closeModalBtn" class="close-btn">&times;</button>
-            <h1>ИНФОРМАЦИЯ</h1>
-            <p>Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</p>
+            <h1>Информация</h1>
+            <div class="info-text"><p>Плагин MProgress предназначен для того, чтобы увидеть информацио о своих текущих результатах по курсу, включая выполненные задания и процент завершенности.</p></div>
         </div>
     </div>

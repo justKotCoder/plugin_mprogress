@@ -22,8 +22,7 @@ buttons.forEach(button => {
 
 // Функционал для перетаскиваемой кнопки
 const draggableButton = document.createElement('button');
-draggableButton.classList.add('draggable-button');
-draggableButton.textContent = 'Mprogress';
+
 document.body.appendChild(draggableButton);
 
 let isDragging = false;
@@ -48,12 +47,17 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('mouseup', () => {
     isDragging = false;
 });
-document.addEventListener('DOMContentLoaded', () => {
-// Логика для смены языка
-const languageButton = document.querySelector('.language-toggle');
-languageButton.addEventListener('click', () => {
-    alert('Смена языка пока не реализована.');
-    // Здесь можно добавить функционал переключения языка
+document.addEventListener('DOMContentLoaded', function () {
+// Получаем переведенную строку из data-атрибута
+const localizedStrings = document.getElementById('localized-strings');
+const startCourseText = localizedStrings.dataset.startCourse;
+
+// Используем строку, например, в уведомлении или при обновлении интерфейса
+const progressTextElements = document.querySelectorAll('.progress-container .circle-progress-text');
+progressTextElements.forEach(element => {
+    if (element.innerText === '0%') {
+        element.innerText = startCourseText;
+    }
 });
 
 // Логика для кнопки информации
@@ -157,15 +161,3 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
         const button = document.querySelector('.draggable-button');
-
-button.addEventListener('click', () => {
-    button.classList.add('hidden'); // Добавляем класс, который скрывает кнопку
-});
-
-
-
-
-
-
-
-

@@ -1,0 +1,28 @@
+.mprogress-floating-btn {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    bottom: 420px;
+    right: 40px;
+    background-color: #e6750c;
+    color: #ffffff;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 3px 3px 4px #999;
+    cursor: move;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Correct Moodle image path syntax */
+    background-image: url([[pix:local_mprogress|icon]]);
+    /* Fallback for older browsers */
+    background-image: url('../pix/icon.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mprogress-floating-btn:hover {
+    background-color: #cc6600;
+}

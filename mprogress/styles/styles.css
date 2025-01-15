@@ -1,6 +1,6 @@
 /* Общие стили */
 .main-inner {
-    max-width: 50% !important;
+    max-width: 55% !important;
 }
 body {
     font-family: "Segoe UI", serif;
@@ -491,4 +491,20 @@ button.toggle-details {
         display: inline-block;
         box-shadow: 1px 1px 5px 0px #00000040;
 
+    }
+
+    .activity-type {
+        font-family: 'Sarala', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 16.3px;
+        text-align: left;
+        color: #888;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .info-text {
+        font-size: 18px;
+        font-family: 'Sarala', sans-serif;
     }
